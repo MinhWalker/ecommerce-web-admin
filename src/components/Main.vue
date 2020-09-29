@@ -115,7 +115,7 @@ export default {
                         y: close,
                     };
                 }
-                var date = moment("Jan 01 1990", "MMM DD YYYY");
+                var date = moment("Jan 01 2019", "MMM DD YYYY");
                 var now = moment();
                 var data = [];
                 var lessThanDay = unitLessThanDay();
