@@ -1,9 +1,12 @@
 import {
     createWebHistory,
     createRouter
-} from "vue-router"
+}
+from "vue-router";
 
 import Main from "../components/Main.vue";
+import SignIn from "../components/SignIn.vue";
+import NotFound from "../components/NotFound.vue";
 
 const history = createWebHistory();
 
@@ -27,14 +30,24 @@ const ifAuthenticated = (to, from, next) => {
 
 const routes = createRouter({
     history,
-    routes: [
-        {
+    routes: [{
             name: 'Main',
             path: '/',
             component: Main,
             beforeEnter: ifAuthenticated,
         },
-    ]
-})
+        {
+            name: 'SignIn',
+            path: '/sign-in',
+            component: SignIn,
+            beforeEnter: ifNotAuthenticated,
+        },
+        {
+            name: 'NotFound',
+            path: "/:catchAll(.*)",
+            component: NotFound,
+        },
+    ],
+});
 
 export default routes;
