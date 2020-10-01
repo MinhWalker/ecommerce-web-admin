@@ -1,7 +1,5 @@
 <template>
-    <div style="padding: 20px">
-        <canvas id="chart1"></canvas>
-    </div>
+    <canvas id="chart1"></canvas>
 </template>
 
 <script>
