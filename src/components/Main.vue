@@ -87,7 +87,7 @@ export default {
         Settings,
     },
     setup() {
-        let currentTabComponent = ref("Account");
+        let currentTabComponent = ref("Statistics");
 
         onMounted(() => {
             // Instantiate MDC Drawer
@@ -116,3 +116,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.main-content {
+    padding: 20px;
+}
+</style>

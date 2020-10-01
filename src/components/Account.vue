@@ -42,7 +42,7 @@
                     </tr>
                 </thead>
                 <tbody class="mdc-data-table__content">
-                    <tr class="mdc-data-table__row">
+                    <tr class="mdc-data-table__row" v-for="user in userListResponse" :key="user.phone">
                         <th class="mdc-data-table__cell" scope="row" style="position: relative;">
                             <img
                                 src="https://picsum.photos/id/237/200/300"
@@ -54,23 +54,23 @@
                         <td
                                 class="mdc-data-table__cell mdc-data-table__cell--numeric"
                                 style="text-align: left; vertical-align: middle;"
-                            >MinhDt</td>
+                            >{{user.fullName}}</td>
                             <td
                                 class="mdc-data-table__cell mdc-data-table__cell--numeric"
                                 style="text-align: left; vertical-align: middle;"
-                            >Minhnh@gmail.com</td>
+                            >{{user.email}}</td>
                             <td
                                 class="mdc-data-table__cell"
                                 style="text-align: left; vertical-align: middle;"
-                            >1234567</td>
+                            >{{user.phone}}</td>
                             <td
                                 class="mdc-data-table__cell"
                                 style="text-align: left; vertical-align: middle;"
-                            >Ha Noi</td>
+                            >{{user.address}}</td>
                             <td
                                 class="mdc-data-table__cell"
                                 style="text-align: left; vertical-align: middle;"
-                            >sds</td>
+                            >{{formatDate(user.createdAt)}}</td>
                     </tr>
                     
                 </tbody>
@@ -80,7 +80,23 @@
 </template>
 
 <script>
+import { useUser } from "../stores/userStore";
+import { parseDate } from "../helper/timeFormat";
+
 export default {
     name: 'Account',
+    setup() {
+        const { userListResponse, getUserList } = useUser();
+        getUserList();
+
+        const formatDate = (d) => {
+            return parseDate(d);
+        };
+
+        return {
+            userListResponse,
+            formatDate,
+        };
+    }
 };
 </script>
