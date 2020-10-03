@@ -4,17 +4,29 @@
         <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
             <button
-            class="mdc-top-app-bar__navigation-icon mdc-icon-button material-icons"
-            href="#">
-            menu
+                class="mdc-top-app-bar__navigation-icon mdc-icon-button material-icons"
+                href="#">
+                menu
             </button>
             <a
-            class="mdc-top-app-bar__title"
-            href="https://www.webdenim.io"
-            target="_blank"
-            style="color: inherit;">
-            Timewise
+                class="mdc-top-app-bar__title"
+                href="https://www.webdenim.io"
+                target="_blank"
+                style="color: inherit;">
+                Timewise
             </a>
+        </section>
+        <section
+            class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+            role="toolbar"
+        >
+            <button
+                @click="logout()"
+                class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                aria-label="power_settings_new"
+                >
+                power_settings_new
+            </button>
         </section>
         </div>
     </header>
@@ -76,6 +88,7 @@ import Product from "../components/Product.vue";
 import Statistics from "../components/Statistics.vue";
 import Order from "../components/Order.vue";
 import Settings from "../components/Settings.vue";
+import router from "../router/router.js";
 
 export default {
     name: 'Main',
@@ -109,15 +122,26 @@ export default {
             currentTabComponent.value = module;
         }
 
+        const logout = () => {
+            console.log("logout");
+            localStorage.setItem("token", "");
+            localStorage.setItem("user", "");
+            router.push("/admin/sign-in");
+        }
+
         return {
             currentTabComponent,
             menuItemClicked,
+            logout,
         };
     },
 };
 </script>
 
 <style scoped>
+.app-drawer {
+    position: fixed;
+}
 .main-content {
     padding: 20px;
 }
