@@ -13,7 +13,7 @@
                 href="https://www.webdenim.io"
                 target="_blank"
                 style="color: inherit;">
-                Timewise
+                E-Commerce
             </a>
         </section>
         <section
