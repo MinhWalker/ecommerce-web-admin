@@ -57,6 +57,11 @@
                             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">memory</i>
                             <span class="mdc-list-item__text">Product</span>
                         </a>
+                        <a @click="menuItemClicked('Category')" class="mdc-list-item" href="#">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">category</i>
+                            <span class="mdc-list-item__text">Category</span>
+                        </a>
                         <a @click="menuItemClicked('Account')" class="mdc-list-item" href="#">
                             <span class="mdc-list-item__ripple"></span>
                             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
@@ -87,6 +92,7 @@ import Account from "../components/Account.vue";
 import Product from "../components/Product.vue";
 import Statistics from "../components/Statistics.vue";
 import Order from "../components/Order.vue";
+import Category from "../components/Category.vue";
 import Settings from "../components/Settings.vue";
 import router from "../router/router.js";
 
@@ -97,6 +103,7 @@ export default {
         Product,
         Statistics,
         Order,
+        Category,
         Settings,
     },
     setup() {
